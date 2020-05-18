@@ -1,0 +1,537 @@
+*,*:hover{
+  transition: all .25s ease;
+}
+
+html{
+  font-size: 16px !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'Teko', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+a{text-decoration: none !important;}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*CSS*/
+div.main-app{
+  width: 100%;
+  min-height:  100vh;
+  position: relative;
+}
+
+div.main-app>div.wrapper{
+  width: 100%;
+  min-height:  100vh;
+  /* background: linear-gradient(#d4ebf2  0%, #86c5da  100% ); */
+  background: linear-gradient(#89c8db  0%, #3da5c4  100% );
+  color: #FFF;
+}
+
+
+div.container.top{
+  min-height: 75%;
+  max-width: 70% !important;
+}
+
+/* Header */
+header{
+  padding: 1rem 0;
+}
+
+header h1{
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+
+/* Main-nav */
+nav.main-nav{
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+nav.main-nav ul{display: flex;list-style: none;padding-left: 0;}
+nav.main-nav ul li{
+  margin-left: 2rem; 
+}
+nav.main-nav ul li a{
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: 'Montserrat','Teko',sans-serif;
+  padding: 0 0.4rem 1.1rem;
+  position: relative;
+  color: #FFF;
+  font-weight: 400;
+  transition: left .25s ease;
+  overflow: hidden;
+  display: block;
+}
+
+nav.main-nav ul li a::after{
+  position: absolute;
+  bottom: 0%;
+  left: -105%;
+  content: '';
+  background: #FFF;
+  width: 100%;
+  height: 0.35rem;
+  transition: left .25s ease;
+
+}
+
+nav.main-nav ul li a:hover::after,
+nav.main-nav ul li a.active::after{
+  left: 0;
+}
+
+
+
+
+
+/* Form */
+form{
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+form input.search-box{
+  width: 85%;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid #efefef;
+  border-radius: 2px;
+  background: #f5f5f5;
+  outline: none;
+  font-size: 1.1rem;
+}
+form input.search-box:hover{border-color: #17414d;}
+form input.search-box:focus{border-color: #17414d;color: #236274;box-shadow: 0 0 3px #17414d;}
+
+form input[type='submit']{
+  padding: 0.6rem 1.4rem;
+  background-color: #17414d ;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  margin-left: 1.5rem;
+  font-size: 1.2rem;
+
+}
+
+form input[type='submit']:hover{
+  background: #236274;
+}
+
+/*Recent Searches*/
+div.recent-searches{
+  width: 92%;
+  padding: 1.5rem 0;
+}
+
+div.recent-searches p{font-size: 1.25rem;letter-spacing: 0.1rem;font-weight: normal;margin-right: 1rem;}
+div.recent-searches ul{list-style: none;}
+div.recent-searches ul li{margin-right: 1rem;}
+div.recent-searches ul a{
+  font-size: 1.15rem;
+  font-weight: normal;
+  color: #FFF;
+  background: #236274;
+  opacity: 0.85;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.05rem;
+}
+
+div.recent-searches ul a:hover{opacity: 1;}
+div.recent-searches span.clear{
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'Montserrat','Teko',sans-serif;
+  font-weight: 100;
+}
+
+div.recent-searches span.clear:hover{color: #236274;}
+
+
+/*Container*/
+div.info-wrapper{
+  background: rgba(255,255,255,0.3);
+  padding: 1.5rem 1.3rem 1.5rem; 
+  width: 85%;
+  border-radius: 1.5rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  min-height: 50vh;
+}
+
+div.info-wrapper::after{
+  content: '';
+  width: 200%;
+  height: 200%;
+  left: 10%;
+  position: absolute;
+  top: 0;
+  background: #fff;
+  opacity: 0.18;
+  border-radius: 50%;
+  z-index: 0;
+
+}
+
+div.info-wrapper div.loader{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: inherit;
+  position: absolute;  
+  left: 50%;
+  transform: translate(-50%);
+
+}
+
+div.info-wrapper p.error{
+  font-size: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+
+div.info-wrapper div.loader-item{
+  width: 6rem;
+  height: 6rem;
+  border: 0.6rem solid #FFF;
+  border-bottom-color: #c1c1c1;
+  border-radius: 50%;
+  animation: loader .75s linear infinite;
+  
+}
+
+@keyframes loader{
+  0%{
+    transform: rotate(0deg);
+  }100%{
+    transform: rotate(360deg);
+  }
+}
+
+div.info-wrapper h3{
+  text-align: left !important;
+  font-size: 4rem;
+  position: relative;
+  
+}
+
+div.info-wrapper h3 i{
+  font-size: 1.6rem;
+}
+div.info-wrapper ul{list-style: none;margin-bottom: 0;margin-top: -3.65rem;}
+div.info-wrapper ul li{margin-left: 0.9rem;}
+div.info-wrapper ul li i{margin-top: 0.35rem;}
+
+div.info-wrapper ul li a{color: #FFF; font-size: 1.25rem;text-decoration: none;}
+div.info-wrapper ul li a:hover,
+div.info-wrapper ul li a.active{color: #276b80;}
+div.info-wrapper ul li a.active{pointer-events: none;}
+
+div.info-wrapper div.side-info p{
+  font-size: 1.3rem;
+  text-align: left;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-family: 'Montserrat','Teko',sans-serif;
+}
+
+div.info-wrapper div.side-info p i{margin-right: 1rem;font-size: 1.2rem;opacity: 0.8;}
+div.info-wrapper div.side-info p.date,
+div.info-wrapper div.side-info p.day{
+  font-size: 2.1rem;
+  letter-spacing: 0px;
+  font-family: 'Teko',sans-serif;
+  font-weight: 100;
+  margin-bottom: 0;
+  line-height: 2rem;
+}
+
+div.info-wrapper div.side-info p.date{margin-bottom: 2rem;}
+
+
+div.info-wrapper div.main-info div.main-symbol{
+  width: 8rem;/*According to height of icon inside*/
+}
+div.info-wrapper div.main-info div.main-symbol i{font-size: 8rem;}
+
+div.info-wrapper div.main-info div.description{
+  font-family: 'Montserrat','Teko',sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding-top: 1.7rem;
+}
+
+div.info-wrapper div.main-info div.weather-info ul.min-max-temp{
+  font-size: 1.4rem;
+  font-family: 'Montserrat','Teko',sans-serif;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+div.info-wrapper div.main-info div.weather-info ul.min-max-temp li{margin-left: 1rem;}
+div.info-wrapper div.main-info div.weather-info ul.min-max-temp li i{margin-right: 0.5rem;}
+
+div.info-wrapper div.main-info div.weather-info p{
+  font-weight: 400;
+  font-size: 7.5rem;
+}
+re
+div.info-wrapper div.main-info div.weather-info p.temperature{display:flex;align-items: center;line-height: 7.5rem;}
+div.info-wrapper div.main-info div.weather-info p.temperature i{margin-right: 1.5rem;}
+
+div.info-wrapper div.main-info div.weather-info p:last-child{margin-top: -2rem;}
+
+div.info-wrapper div.main-info .weather-info p i{font-size: 3.5rem;}
+div.info-wrapper div.main-info .weather-info p.feelslike{font-size: 2.3rem;}
+div.info-wrapper div.main-info .weather-info p.feelslike span.icon{font-size: 1.8rem; margin: 0 .5rem;}
+
+
+/* footer */
+div.container.bottom{
+  max-width: 100% !important;
+}
+
+footer{
+  padding: 1.5rem 0 2.5rem;
+/*   font-size: 1.1rem;
+  color: #000; */
+  font-size: 1.35rem;
+color: #f2f9fb;
+}
+
+footer p{margin-bottom: 0;font-family: "Montserrat",'Teko',sans-serif;font-weight: 300;}
+
+/*Documentation*/
+div.documentation{
+  padding: 4rem 0;
+  width: 85%;
+  color: #FFF;
+}
+
+div.documentation h1{font-size: 3rem; text-align: center;margin-bottom: 2rem;}
+div.documentation h3{font-size: 2.5rem; text-align: center;margin-bottom: 2rem;border-bottom: 1px solid #FFF;padding-top: 1.5rem;}
+
+div.documentation p{
+  font-size: .95rem;
+  margin-bottom: 2rem;
+  font-weight: normal;
+  letter-spacing: .05rem;
+  letter-spacing: 0.1rem;
+  color: #f2f9fb;
+  text-align: justify;
+  font-family: Arial,sans-serif;
+}
+
+div.documentation p strong{color: #236274;}
+
+
+div.documentation a{font-style: italic;color: #f2f9fb;text-decoration: underline !important;}
+div.documentation a:hover{color: #236274;}
+
+div.documentation p.list{margin-bottom: .45rem;font-size: 1rem;}
+div.documentation p.note{
+  padding:0.15rem 0 .15rem 2rem;
+  margin-top: 2.5rem;
+  border-left: 0.6rem solid #fff;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+
+/* End documentation */
+
+
+/*Classes*/
+.bold{font-weight: bold !important;}
+.uc{text-transform: uppercase !important;}
+.lc{text-transform: lowercase !important;}
+.top-stack{z-index: 2 !important;
+  flex: 0 0 !important;/*Apply it because it does something, no extra space, go to minimum content size*/
+}
+.flex-grow{flex: 1;}
+
+/* Night classes */
+
+div.main-app div.wrapper.night{color: #2c7e95;background: linear-gradient(#11313a  0%, #236477  100% );}
+
+div.main-app .night form input.search-box{border: 1px solid #236274;}
+div.main-app .night form input.search-box:hover{border-color: #fff;}
+div.main-app .night form input.search-box:focus{border-color: #fff;color: #236274;box-shadow: 0 0 3px #fff;}
+
+div.main-app .night form input[type='submit']{background: #236274;}
+div.main-app .night form input[type='submit']:hover{background: #1e5768;}
+
+div.main-app .night div.recent-searches ul a{background: #1e5768;}
+div.main-app .night div.recent-searches span.clear:hover{color: #236477;}
+
+div.main-app .night div.info-wrapper{background: rgba(0,0,0,0.3);}
+div.main-app .night div.info-wrapper::after{background: #000;opacity: 0.09;}
+div.main-app .night div.info-wrapper ul li a{color: #236274;}
+div.main-app .night div.info-wrapper ul li a:hover,
+div.main-app .night div.info-wrapper ul li a.active{color: #FFF;opacity: 0.6;}
+
+div.main-app .night footer{color: #FFF;}
+
+/* Hot Classes */
+div.main-app div.wrapper.hot{background: linear-gradient(#ffa500   0%, #ffc04d   100% );}
+
+div.main-app .hot form input.search-box{border: 1px solid #ff7b00;}
+div.main-app .hot form input.search-box:hover{border-color: #fff;}
+div.main-app .hot form input.search-box:focus{border-color: #ff7b00;color: #ff7b00;box-shadow: 0 0 25px #fff;}
+
+div.main-app .hot form input[type='submit']{background: #e66f00;}
+div.main-app .hot form input[type='submit']:hover{background: #ff7b00;}
+
+div.main-app .hot div.recent-searches ul a{background: #ff7b00;}
+div.main-app .hot div.recent-searches span.clear:hover{color: #ffa500;}
+
+div.main-app .hot div.info-wrapper ul li a:hover,
+div.main-app .hot div.info-wrapper ul li a.active{color: #e66f00;opacity: 0.6;}
+div.main-app .hot footer{color: #FFF;}
+
+/* Media queries */
+/* Sizes: 576 -sm, 768px -md,992 -lg, 1200 -xl  */
+
+/* //Increasing font sizes for larger screen */
+@media screen and (min-width:1600px) and (max-width: 3000px){
+  html{font-size: 24px !important;}
+}
+@media screen and (min-width:3000px){
+  html{font-size: 32px !important;}
+}
+
+
+@media screen and (max-width: 992px){
+  html{font-size: 12px !important;}
+  div.container.top{max-width: 100% !important;}
+
+  nav.main-nav{transform: translateX(-50%);left: 50%;}
+
+  nav.main-nav ul li a{font-size: 1.4rem;}
+
+  header h1{font-size: 4rem; margin-top: 2.25rem;}
+  div.documentation h1{font-size: 4rem; margin-top: 2.25rem;}
+  div.documentation p{font-size: 1.2rem;}
+  div.documentation p.list{font-size: 1.3rem;}
+  div.documentation p.note{font-size: 1.3rem;}
+
+  form{width: 95%;}
+  form input.search-box{font-size: 1.8rem;}
+  form input[type='submit']{font-size: 2rem;}
+
+  div.recent-searches span.clear{font-size: 3rem;}
+  div.recent-searches p{margin-top: 1.4rem !important;}
+
+  div.top-stack:nth-child(1){padding-bottom: 1.5rem;}
+  div.top-stack h3{
+    font-size: 5.5rem;
+    line-height: 5rem;
+    margin-bottom: 0;
+    flex-grow: 1;
+  }
+  div.top-stack ul{margin-top: -4rem;}
+  
+  div.top-stack:nth-child(2){flex-flow: column;}
+  div.top-stack div.side-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    flex-shrink: 1;
+  }
+  div.top-stack div.side-info p.day{font-size: 3rem;}
+  div.top-stack div.side-info p.date{margin-bottom: 0;}
+
+  div.top-stack div.main-info{flex-shrink: 1;}
+  div.top-stack div.main-info div.main-symbol i{font-size: 12.75rem;}
+  div.top-stack div.main-info div.weather-info p{font-size: 9rem;text-align: center;}
+  div.top-stack div.main-info div.weather-info p.temperature{justify-content: center;}
+  div.top-stack div.main-info div.weather-info ul.min-max-temp{margin-bottom: 1rem !important;}
+}
+
+@media screen and (max-width: 576px){
+  html{font-size: 8px !important;}
+  
+  nav.main-nav ul li a{font-size: 1.5rem;}
+  
+  header h1{font-size: 5rem;text-align: center;}
+  
+  form{font-size: 2.5rem;}
+
+  form input.search-box{font-size: 2.5rem;}
+  form input[type='submit']{font-size: 2.7rem;}
+  
+  div.recent-searches p:first-child{display: none;}
+  div.recent-searches ul li a{font-size: 1.8rem;}
+  
+  div.info-wrapper{width: 95%;}
+  div.main-info{flex-flow: column;}
+
+  div.top-stack h3{text-align: center !important;}
+
+  div.main-info div.main-symbol{width: 100% !important;text-align: center;}
+  div.main-info div.main-symbol i{font-size: 20rem !important; margin: auto;}
+  
+  div.top-stack ul:nth-child(2){display: none !important;}
+  div.top-stack ul:nth-child(1){font-size: 2.5rem !important;margin-bottom: .5rem;}
+
+  div.main-info div.description{font-size: 2.5rem !important; text-align: center !important;}
+
+  div.main-info div.weather-info{flex-shrink: 1;}
+  div.main-info div.weather-info:nth-child(1){padding-bottom: 1.5rem;}
+  div.main-info div.weather-info ul.min-max-temp{padding-left: 0 !important;font-size: 1.5rem;}
+
+  div.top-stack div.side-info{display: block !important;}
+  div.top-stack div.side-info p{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  div.top-stack div.side-info p.day{font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  div.top-stack div.side-info p.date{font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  footer{font-size: 2rem;text-align: center;}
+  
+}
+
+/*Very small sizes*/
+@media screen and (max-width: 400px){
+
+  html{font-size: 5.5px !important;}
+
+  nav.main-nav ul li a{font-size: 1.6rem;}
+
+  div.info-wrapper{width: 100%;}  
+
+}
